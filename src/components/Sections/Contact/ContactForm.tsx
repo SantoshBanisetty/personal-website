@@ -1,5 +1,7 @@
-import {FC, memo, useCallback, useMemo, useState} from 'react';
+import { FC, memo, useCallback, useMemo, useState, useRef } from 'react';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2'
 
 interface FormData {
   name: string;
@@ -8,6 +10,40 @@ interface FormData {
 }
 
 const ContactForm: FC = memo(() => {
+  const form = useRef();
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_bfmfqf2', 'template_6tkxb5n', form.current, '_jVP5o-pjANirvc7k')
+      .then((result) => {
+          console.log(result.text);
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Contact Details Sent'
+          })
+      }, (error) => {
+          console.log(error.text);
+          Toast.fire({
+            icon: 'error',
+            title: 'Failed to send Details'
+          })
+      });
+      e.target.reset();
+  };
   const defaultData = useMemo(
     () => ({
       name: '',
@@ -21,11 +57,11 @@ const ContactForm: FC = memo(() => {
 
   const onChange = useCallback(
     <T extends HTMLInputElement | HTMLTextAreaElement>(event: React.ChangeEvent<T>): void => {
-      const {name, value} = event.target;
+      const { name, value } = event.target;
 
-      const fieldData: Partial<FormData> = {[name]: value};
+      const fieldData: Partial<FormData> = { [name]: value };
 
-      setData({...data, ...fieldData});
+      setData({ ...data, ...fieldData });
     },
     [data],
   );
@@ -37,7 +73,8 @@ const ContactForm: FC = memo(() => {
        * This is a good starting point to wire up your form submission logic
        * */
       console.log('Data to send: ', data);
-      axios.post("https://formsubmit.co/e1af84f6cac7ae091897b1566b081845", data);
+      const response = await axios.post("https://formsubmit.co/5d7d777850e8d5204e46179015233b88 ", data);
+      console.log(response);
     },
     [data],
   );
@@ -46,12 +83,12 @@ const ContactForm: FC = memo(() => {
     'bg-neutral-700 border-0 focus:border-0 focus:outline-none focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-sm';
 
   return (
-    <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={handleSendMessage}>
-      <input className={inputClasses} name="name" onChange={onChange} placeholder="Name" required type="text" />
+    <form ref={form} className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={sendEmail}>
+      <input className={inputClasses} name="to_name" onChange={onChange} placeholder="Name" required type="text" />
       <input
         autoComplete="email"
         className={inputClasses}
-        name="email"
+        name="user_email"
         onChange={onChange}
         placeholder="Email"
         required
@@ -62,7 +99,7 @@ const ContactForm: FC = memo(() => {
         maxLength={250}
         name="message"
         onChange={onChange}
-        placeholder="This form is not working at the moment, inconvenience regretted."
+        placeholder="Message"
         required
         rows={6}
       />
