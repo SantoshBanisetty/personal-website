@@ -340,24 +340,24 @@ export const experience: TimelineItem[] = [
 export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
+    // {
+    //   name: 'Sandesh Kannan, Mill Bundle',
+    //   text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
+    //   image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
+    // },
+    // {
+    //   name: 'Jane Doe',
+    //   text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
+    //   image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
+    // },
     {
-      name: 'Sandesh Kannan, Mill Bundle',
-      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-    },
-    {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-    },
-    {
-      name: 'Abivishaq, Georgia Tech',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
+      name: 'Abivishaq (former colleague/mentee), Georgia Tech',
+      text: 'At Zebu, not only was I immersed in a nurturing environment ripe for learning and growth, but I genuinely felt my individual career aspirations were recognized, offering me the flexibility to shape my own path.',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
     },
     {
-      name: 'Jane Doe, Stealth Startup Founder',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
+      name: 'Anonymized, Stealth Startup Founder',
+      text: 'Santosh\'s business acument combined with his expertise in AI, neural networks, computer vision, and software adds a ton of value to the product. His mastery of these cutting-edge technologies is evident in the exceptional solutions he delivers. Collaborating with Santosh means benefiting from a visionary mind that seamlessly translates complex concepts into practical, game-changing outcomes.',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
     },
   ],
@@ -396,11 +396,11 @@ export const contact: ContactSection = {
       text: 'SBanisetty',
       href: 'https://twitter.com/SBanisetty',
     },
-    // {
-    //   type: ContactType.Instagram,
-    //   text: '@tbakerx',
-    //   href: 'https://www.instagram.com/tbakerx/',
-    // },
+    {
+      type: ContactType.Topmate,
+      text: 'topmate',
+      href: 'https://topmate.io/santosh_banisetty',
+    },
     // {
     //   type: ContactType.Github,
     //   text: 'tbakerx',

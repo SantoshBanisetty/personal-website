@@ -37,7 +37,7 @@ const ContactForm: FC = memo(() => {
        * This is a good starting point to wire up your form submission logic
        * */
       console.log('Data to send: ', data);
-      axios.post("https://formsubmit.co/e2036d5c345f827ee4d3c30d890cb027", data);
+      axios.post("https://formsubmit.co/e1af84f6cac7ae091897b1566b081845", data);
     },
     [data],
   );
@@ -62,7 +62,7 @@ const ContactForm: FC = memo(() => {
         maxLength={250}
         name="message"
         onChange={onChange}
-        placeholder="Message"
+        placeholder="This form is not working at the moment, inconvenience regretted."
         required
         rows={6}
       />
