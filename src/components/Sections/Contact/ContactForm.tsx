@@ -1,7 +1,7 @@
-import { FC, memo, useCallback, useMemo, useState, useRef } from 'react';
-import axios from 'axios';
 import emailjs from '@emailjs/browser';
+import {FC, memo, useCallback, useMemo, useRef,useState} from 'react';
 import Swal from 'sweetalert2'
+
 
 interface FormData {
   name: string;
@@ -10,7 +10,7 @@ interface FormData {
 }
 
 const ContactForm: FC = memo(() => {
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null); 
 
   const Toast = Swal.mixin({
     toast: true,
@@ -24,10 +24,10 @@ const ContactForm: FC = memo(() => {
     }
   })
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_bfmfqf2', 'template_6tkxb5n', form.current, '_jVP5o-pjANirvc7k')
+    emailjs.sendForm('service_bfmfqf2', 'template_6tkxb5n', e.currentTarget, '_jVP5o-pjANirvc7k')
       .then((result) => {
           console.log(result.text);
           
@@ -42,7 +42,7 @@ const ContactForm: FC = memo(() => {
             title: 'Failed to send Details'
           })
       });
-      e.target.reset();
+      e.currentTarget.reset();
   };
   const defaultData = useMemo(
     () => ({
@@ -57,24 +57,11 @@ const ContactForm: FC = memo(() => {
 
   const onChange = useCallback(
     <T extends HTMLInputElement | HTMLTextAreaElement>(event: React.ChangeEvent<T>): void => {
-      const { name, value } = event.target;
+      const {name, value} = event.target;
 
-      const fieldData: Partial<FormData> = { [name]: value };
+      const fieldData: Partial<FormData> = {[name]: value};
 
-      setData({ ...data, ...fieldData });
-    },
-    [data],
-  );
-
-  const handleSendMessage = useCallback(
-    async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      /**
-       * This is a good starting point to wire up your form submission logic
-       * */
-      console.log('Data to send: ', data);
-      const response = await axios.post("https://formsubmit.co/5d7d777850e8d5204e46179015233b88 ", data);
-      console.log(response);
+      setData({...data, ...fieldData});
     },
     [data],
   );
@@ -83,7 +70,7 @@ const ContactForm: FC = memo(() => {
     'bg-neutral-700 border-0 focus:border-0 focus:outline-none focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-sm';
 
   return (
-    <form ref={form} className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={sendEmail}>
+    <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={sendEmail} ref={form}>
       <input className={inputClasses} name="to_name" onChange={onChange} placeholder="Name" required type="text" />
       <input
         autoComplete="email"

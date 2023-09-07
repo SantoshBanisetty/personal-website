@@ -16,19 +16,19 @@ import {homePageMeta} from '../data/data';
 // const Header = dynamic(() => import('../components/Sections/Header'), {ssr: false});
 
 const Home: FC = memo(() => {
-  const {title, description} = homePageMeta;
-  return (
-    <Page description={description} title={title}>
-      <Header />
-      <Hero />
-      <About />
-      <Resume />
-      {/* <Portfolio /> */}
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </Page>
-  );
+    const {title, description} = homePageMeta;
+    return (
+        <Page description={description} title={title}>
+            <Header />
+            <Hero />
+            <About />
+            <Resume />
+            {/* <Portfolio /> */}
+            <Testimonials />
+            <Contact />
+            <Footer />
+        </Page>
+    );
 });
 
 export default Home;
