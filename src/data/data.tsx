@@ -1,4 +1,5 @@
 import {ArrowDownTrayIcon} from '@heroicons/react/24/outline';
+import {BiLinkExternal} from 'react-icons/bi'
 
 //import GithubIcon from '../components/Icon/GithubIcon';
 //import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -66,7 +67,7 @@ export const heroData: Hero = {
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         I'm an <strong className="text-stone-100">Entrepreneur</strong>, building{' '}
-        <strong className="text-stone-100">Zebu Intelligent Systems</strong>, empowering business & organizations to
+        <strong className="text-stone-100"><a href="http://zebu.ai/" target='_blank'>Zebu Intelligent Systems <BiLinkExternal className='inline' /></a></strong>, empowering business & organizations to
         harness the power of AI & Robotics.
       </p>
       {/* <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
@@ -380,7 +381,7 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'sbanisetty [at] zebu [dot] ai',
+      text: 'sbanisetty@zebu.ai',
       // href: 'mailto:reachout@timbaker.me',
     },
     {
