@@ -65,17 +65,17 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm an <strong className="text-stone-100">Entrepreneur</strong>, currently working at{' '}
+        I'm an <strong className="text-stone-100">Entrepreneur</strong>, building{' '}
         <strong className="text-stone-100">Zebu Intelligent Systems</strong>, empowering business & organizations to
         harness the power of AI & Robotics.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      {/* <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
         Finance is my newfound interest and in my free time,{' '}
         <strong className="text-stone-100">I analyze Indian and US public companies</strong>, seeking investment
         opportunities. An aspiring private equity investor,{' '}
         <strong className="text-stone-100">I invest sweat and/or capital</strong>, driving innovation and empowering
         startups to soar to new heights.
-      </p>
+      </p> */}
     </>
   ),
   actions: [
@@ -111,6 +111,13 @@ export const aboutData: About = {
         Furthermore, I have entrepreneurial experience, having successfully exited my first startup in the IoT Domain.
         As a rainmaker and innovator at my startup, I relish the opportunity to utilize my skills in commercializing
         technology.
+      </p>
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+        Finance is my newfound interest and in my free time,{' '}
+        <strong className="text-stone-100">I analyze Indian and US public companies</strong>, seeking investment
+        opportunities. An aspiring private equity investor,{' '}
+        <strong className="text-stone-100">I invest sweat and/or capital</strong>, driving innovation and empowering
+        startups to soar to new heights.
       </p>
     </>
   ),
@@ -357,7 +364,7 @@ export const testimonial: TestimonialSection = {
     },
     {
       name: 'Anonymized, Stealth Startup Founder',
-      text: 'Santosh\'s business acument combined with his expertise in AI, neural networks, computer vision, and software adds a ton of value to the product. His mastery of these cutting-edge technologies is evident in the exceptional solutions he delivers. Collaborating with Santosh means benefiting from a visionary mind that seamlessly translates complex concepts into practical, game-changing outcomes.',
+      text: 'Santosh\'s business acumen combined with his expertise in AI, neural networks, computer vision, and software adds a ton of value to the product. His mastery of these cutting-edge technologies is evident in the exceptional solutions he delivers. Collaborating with Santosh means benefiting from a visionary mind that seamlessly translates complex concepts into practical, game-changing outcomes.',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
     },
   ],
