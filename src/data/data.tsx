@@ -381,7 +381,7 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'sbanisetty@zebu.ai',
+      text: 'sbanisetty [at] zebu [dot] ai',
       // href: 'mailto:reachout@timbaker.me',
     },
     {

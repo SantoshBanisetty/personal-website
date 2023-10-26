@@ -1,6 +1,6 @@
 import emailjs from '@emailjs/browser';
 import {FC, memo, useCallback, useMemo, useRef,useState} from 'react';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 
 interface FormData {
@@ -26,7 +26,6 @@ const ContactForm: FC = memo(() => {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     emailjs.sendForm('service_bfmfqf2', 'template_6tkxb5n', e.currentTarget, '_jVP5o-pjANirvc7k')
       .then((result) => {
           console.log(result.text);
@@ -71,7 +70,7 @@ const ContactForm: FC = memo(() => {
 
   return (
     <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={sendEmail} ref={form}>
-      <input className={inputClasses} name="to_name" onChange={onChange} placeholder="Name" required type="text" />
+      <input className={inputClasses} name="user_name" onChange={onChange} placeholder="Name" required type="text" />
       <input
         autoComplete="email"
         className={inputClasses}
