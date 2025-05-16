@@ -101,24 +101,28 @@ export const aboutData: About = {
   profileImageSrc: profilepic,
   description: (
     <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg text-justify">
         I am a Ph.D. graduate in Computer Science and Engineering with a focus on intelligent systems and robotics.
         Passionate about technology in all its facets, I have worked extensively on projects encompassing software,
         hardware, and everything in between. I have a particular affinity for IoT, Robotics, and AI. Alongside my
         academic pursuits, I have actively engaged in STEM outreach activities. I have a track record of success in
         hackathons, such as securing the first place in the Microsoft Hackathon, and entrepreneurship competitions.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg text-justify">
         Furthermore, I have entrepreneurial experience, having successfully exited my first startup in the IoT Domain.
         As a rainmaker and innovator at my startup, I relish the opportunity to utilize my skills in commercializing
         technology.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        Finance is my newfound interest and in my free time,{' '}
+      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg text-justify">
+        Finance has become a newfound passion, and on weekends, I immerse myself in analyzing public companies across
+        India and the US, seeking promising investment opportunities. I aspire to become a private equity investor one 
+        day. With that long-term goal in mind, I'm deeply interested in supporting innovation and envision contributing 
+        sweat or capital to help startups grow and thrive in the future.
+        {/* Finance is my newfound interest and in my free time,{' '}
         <strong className="text-stone-100">I analyze Indian and US public companies</strong>, seeking investment
         opportunities. An aspiring private equity investor,{' '}
         <strong className="text-stone-100">I invest sweat and/or capital</strong>, driving innovation and empowering
-        startups to soar to new heights.
+        startups to soar to new heights. */}
       </p>
     </>
   ),
@@ -404,11 +408,11 @@ export const contact: ContactSection = {
       text: 'SBanisetty',
       href: 'https://twitter.com/SBanisetty',
     },
-    {
-      type: ContactType.Topmate,
-      text: 'topmate',
-      href: 'https://topmate.io/santosh_banisetty',
-    },
+    // {
+    //   type: ContactType.Topmate,
+    //   text: 'topmate',
+    //   href: 'https://topmate.io/santosh_banisetty',
+    // },
     // {
     //   type: ContactType.Github,
     //   text: 'tbakerx',

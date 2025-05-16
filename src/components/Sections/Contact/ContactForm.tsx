@@ -1,5 +1,5 @@
 import emailjs from '@emailjs/browser';
-import {FC, memo, useCallback, useMemo, useRef,useState} from 'react';
+import {FC, memo, useCallback, useEffect, useMemo, useRef,useState} from 'react';
 import Swal from 'sweetalert2';
 
 
@@ -68,9 +68,24 @@ const ContactForm: FC = memo(() => {
   const inputClasses =
     'bg-neutral-700 border-0 focus:border-0 focus:outline-none focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-sm';
 
+  const [hostname, setHostname] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHostname(window.location.hostname);
+    }
+  }, []);
+
   return (
     <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={sendEmail} ref={form}>
-      <input className={inputClasses} name="user_name" onChange={onChange} placeholder="Name" required type="text" />
+      <input
+        className={inputClasses}
+        name="user_name" 
+        onChange={onChange} 
+        placeholder="Name" 
+        required 
+        type="text"
+      />
       <input
         autoComplete="email"
         className={inputClasses}
@@ -80,6 +95,15 @@ const ContactForm: FC = memo(() => {
         required
         type="email"
       />
+      <input
+        autoComplete="tel"
+        className={inputClasses}
+        name="phone_number"
+        onChange={onChange}
+        placeholder="Phone Number (+91)"
+        required
+        type="tel"
+      />
       <textarea
         className={inputClasses}
         maxLength={250}
@@ -88,6 +112,11 @@ const ContactForm: FC = memo(() => {
         placeholder="Message"
         required
         rows={6}
+      />
+      <input
+        name="website"
+        type="hidden"
+        value={hostname}  // This automatically gets the current website hostname
       />
       <button
         aria-label="Submit contact form"
