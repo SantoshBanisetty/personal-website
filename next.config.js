@@ -15,6 +15,7 @@ const nextConfig = {
 
     return config;
   },
+  output: 'export',
   compress: true,
   generateEtags: true,
   pageExtensions: ['tsx', 'mdx', 'ts'],
@@ -29,6 +30,7 @@ const nextConfig = {
   trailingSlash: false,
   images: {
     domains: ['images.unsplash.com', 'source.unsplash.com'],
+    unoptimized: true,
   },
 };
 
